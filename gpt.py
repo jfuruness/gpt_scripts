@@ -1,8 +1,8 @@
-
+#!/usr/bin/env python3
 import os
 
 def print_tree_and_files(base_dir):
-    print("Tree below:")
+    print("Tree below:\n'''")
 
     def print_tree(directory, prefix=""):
         allowed_extensions = {'.py', '.rs', '.js', '.css', '.html'}
@@ -28,8 +28,9 @@ def print_tree_and_files(base_dir):
                 print_tree(path, new_prefix)
 
     print_tree(base_dir)
+    print("'''\n\n")
 
-    print("\nFiles below:")
+    print("\nFiles below:\n")
 
     def is_binary(file_path):
         try:
@@ -59,7 +60,7 @@ def print_tree_and_files(base_dir):
                         print(f.read())
                 except Exception as e:
                     print(f"Error reading file: {e}")
-                print("```")
+                print("```\n")
 
     print_file_paths_and_contents(base_dir, base_dir)
 
